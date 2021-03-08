@@ -5,9 +5,9 @@ var dog , happyDog , database , foodS , foodStock ;
 function preload()
 {
   //load images here
-  dogImg =  loadImage("images/shadow dog.jpg");
-  happyDogImg = loadImage("images/happy shadow.jpg");
-  eatingDog = loadImage("images/eating shadow.jpg");
+  dogImg =  loadImage("shadow dog.jpg");
+  happyDogImg = loadImage("happy shadow.jpg");
+  eatingDog = loadImage("eating shadow.jpg");
   //eatingDog.scale = 0.5 ;
 }
 
@@ -15,24 +15,29 @@ function setup() {
   database = firebase.database();
   foodStock = database.ref("food");
   foodStock.on("value",readstock);
-  createCanvas(1000,1000);
-  dog =  createSprite(500,500);
+  createCanvas(800,500);
+  dog =  createSprite(300,400);
   dog.addImage(dogImg);
-  dog.scale = 0.7
+
+  dog.scale = 0.3
   
 }
 
 
 function draw() {  
 background("white");
+
 textSize(20);
 fill("black");
 text("Hey Hi Everyone I am Shadow !! ",350,50);
+
 textSize(20);
 fill("black");
-text("Press the UP_ARROW to play with shadow ",350,890);
+text("Press the UP_ARROW to play with shadow ",350,390);
+
 fill("black");
-text("Press the DOWN_ARROW to feed shadow ",300,950);
+text("Press the DOWN_ARROW to feed shadow ",300,350);
+
 drawSprites();  
   //add styles here
   if (keyWentDown(UP_ARROW)){
